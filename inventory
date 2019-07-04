@@ -1,0 +1,12 @@
+[test]
+127.0.0.1 ansible_connection=local
+15.213.56.127 ansible_user=root ansible_become=yes myname=msinhost
+15.213.56.128 ansible_user=root ansible_become=yes
+
+[windows]
+13.233.119.65 ansible_user=Administrator ansible_password=WsgPP?V%&JWvp.AwfKcacQp@22I!8QF! ansible_connection=winrm ansible_winrm_transport=basic
+
+[test:vars]
+myname=ms
+mycomp=hpe
+myage=31

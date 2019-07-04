@@ -1,0 +1,24 @@
+---
+# tasks file for webserver
+  - name: Install the httpd apps
+    yum: name=httpd
+  - name: start the httpd service
+    service: name=httpd state=started
+  - name: example copying file with owner and permissions
+    copy:
+      src: /opt/test.sh
+      dest: /tmp/test.sh
+      mode: 0644
+  - script: /tmp/test.sh 
+  - name: Add the user deploytest with a bash shell, appending the group deploytest
+    user:
+      name: deploytest
+      shell: /bin/bash
+      groups: deploytest
+      append: yes
+  - name: install
+    yum: name={{ item }} state=installed
+    with_items:
+      - wireshark
+      - unzip
+      - vim
